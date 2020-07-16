@@ -1,7 +1,7 @@
 const circle = document.getElementById('circle');
 const div = document.querySelector('.container');
 
-let score = 0;
+let score = 1;
 
 circle.addEventListener('click', function(e) {
   document.querySelector('.score').innerHTML = score.toString();
@@ -18,15 +18,14 @@ function invisible() {
 
 function visible() {
   circle.classList.remove('invisible');
-  console.log(visible);
 };
 
 start = setInterval(visible, 300);
 
-// stop game after first click in 5 seconds
+// stop game after first click in 10 seconds
 function stopGame() {
   setTimeout(function() {
-    clearTimeout(start)
+    clearInterval(start)
   }, 10000);
 }
 // posittion and timing of ball
