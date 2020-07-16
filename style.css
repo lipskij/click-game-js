@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+p{
+  padding-top: 5rem;
+  text-align: center;
+}
+
+#score {
+  padding-top: 5rem;
+}
+span {
+  font-size: 20px;
+  padding-left: 1.4rem;
+  line-height: 2;
+}
+
+.container {
+  border: 2px solid pink;
+  width: 300px;
+  height: 300px;
+  margin: 5rem;
+}
+
+#circle {
+  position: relative;
+  border: 2px solid black;
+  top: 100px;
+  left: 100px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.invisible {
+  display: none;
+}
+.visible {
+  display: all;
+}
