@@ -1,31 +1,47 @@
-const circle = document.getElementById('circle');
-const div = document.querySelector('.container');
+const circle = document.getElementById("circle");
+const div = document.querySelector(".container");
+const timerDisplay = document.querySelector(".timer");
+const startBtn = document.querySelector('#btn');
 
 let score = 1;
+let timeLeft = 10;
 
-circle.addEventListener('click', function(e) {
-  document.querySelector('.score').innerHTML = score.toString();
+circle.addEventListener("click", function (e) {
+  document.querySelector(".score").innerHTML = score.toString();
   moveCirc();
   invisible();
   score++;
   stopGame();
 });
+// start btn
+startBtn.addEventListener('click', countDown);
+//count down
+function countDown() {
+  setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(timeLeft = 0);
+    }
+
+    timerDisplay.innerHTML = timeLeft;
+    timeLeft -= 1;
+  }, 1000);
+}
 
 // invisible function
 function invisible() {
-  circle.classList.add('invisible');
+  circle.classList.add("invisible");
 }
 
 function visible() {
-  circle.classList.remove('invisible');
-};
+  circle.classList.remove("invisible");
+}
 
 start = setInterval(visible, 300);
 
 // stop game after first click in 10 seconds
 function stopGame() {
-  setTimeout(function() {
-    clearInterval(start)
+  setTimeout(function () {
+    clearInterval(start);
   }, 10000);
 }
 // posittion and timing of ball
@@ -57,6 +73,8 @@ function moveCirc() {
   let randNumV = Math.round(Math.random() * availSpaceV);
   let randNumH = Math.round(Math.random() * availSpaceH);
 
-  circle.style.top = randNumV + 'px';
-  circle.style.left = randNumH + 'px';
+  circle.style.top = randNumV + "px";
+  circle.style.left = randNumH + "px";
 }
+
+// add stopwhach for timer
