@@ -2,9 +2,10 @@ const circle = document.getElementById("circle");
 const div = document.querySelector(".container");
 const timerDisplay = document.querySelector(".timer");
 const startBtn = document.querySelector('#btn');
+const restartBtn = document.querySelector('#restart-btn');
 
 let score = 1;
-let timeLeft = 10;
+let timeLeft = 9;
 
 circle.addEventListener("click", function (e) {
   document.querySelector(".score").innerHTML = score.toString();
@@ -13,8 +14,13 @@ circle.addEventListener("click", function (e) {
   score++;
   stopGame();
 });
+
 // start btn
 startBtn.addEventListener('click', countDown);
+restartBtn.addEventListener('click', function(e) {
+  location.reload()
+});
+
 //count down
 function countDown() {
   setInterval(() => {
